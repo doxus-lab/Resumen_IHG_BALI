@@ -43,7 +43,7 @@
             width: 50px; height: 50px; background-color: #Ffbc06;
             color: #262a36; font-weight: 900; font-size: 1.8rem;
             display: flex; align-items: center; justify-content: center;
-            border-radius: 50%; margin: 0 auto 1.5rem;
+            border-radius: 50%;
         }
         .lock-container h2 {
             font-weight: 900; font-size: 1.4rem; margin-bottom: 0.5rem;
@@ -189,7 +189,7 @@
         .timeline-date { font-weight: 900; font-size: 1.1rem; color: #262a36; margin-bottom: 0.25rem; }
         .timeline-title { font-weight: 500; font-size: 0.95rem; color: #4a5060; }
 
-        /* --- RECOMENDACIONES --- */
+        /* --- RECOMENDACIONES (RIESGOS) --- */
         .rec-item { display: flex; gap: 1.5rem; background: #f8f9fa; padding: 2rem; border-radius: 1rem; margin-bottom: 1.5rem; border: 1px solid #e9ecef; }
         .rec-item:last-child { margin-bottom: 0; }
         .rec-num { font-weight: 900; font-size: 1.5rem; color: #Ffbc06; line-height: 1; }
@@ -219,7 +219,11 @@
     <!-- PANTALLA DE BLOQUEO INICIAL -->
     <div id="lock-screen">
         <div class="lock-container">
-            <div class="lock-logo-fallback">D</div>
+            <!-- Contenedor del Logo de la Pantalla de Bloqueo -->
+            <div class="lock-logo-container" style="margin-bottom: 1.5rem; display: flex; justify-content: center;">
+                <img src="logo.png" alt="DOXUS" style="height: 50px; display: block;" onerror="this.style.display='none'; document.getElementById('lock-fallback').style.display='flex';">
+                <div id="lock-fallback" class="lock-logo-fallback" style="display:none; margin: 0 auto;">D</div>
+            </div>
             <h2>Acceso al Documento</h2>
             <p>Ingrese la clave de validación del proyecto.</p>
             <input type="password" id="pw" class="lock-input" placeholder="Contraseña">
@@ -447,12 +451,12 @@
             </div>
         </section>
 
-        <!-- 05 RECOMENDACIONES -->
+        <!-- 05 RIESGOS INHERENTES IDENTIFICADOS Y MITIGADORES -->
         <section class="card-presentation">
             <span class="section-index">APARTADO 05</span>
-            <h2>Recomendaciones Técnicas de Control</h2>
+            <h2>Riesgos Inherentes identificados y mitigadores</h2>
             <p class="intro-text">
-                Puntos críticos identificados durante la revisión de los instrumentos de administración y consultoría técnica hotelera:
+                Riesgos detectados durante la revisión de los instrumentos de administración y consultoría técnica hotelera, acompañados de sus respectivos análisis mitigadores:
             </p>
 
             <div class="rec-list">
@@ -467,7 +471,7 @@
                     <div class="rec-num">02</div>
                     <div class="rec-content">
                         <h4>Control ante Decisiones del Condominio General (Detrimental Actions)</h4>
-                        <p>Decisiones de la Asociación de Propietarios de los componentes comerciales o corporativos que afecten negativamente el estándar del hotel facultan al Administrador a rescindir de forma justificada e imputable al Propietario, quien dispondrá únicamente de 60 días naturales para mitigar la anomalía.</p>
+                        <p>Decisiones de la Asociación de Propietarios de los componentes comerciales o corporativos que afecten negativamente el estándar del hotel facultan al Administrador a rescindir de forma justificada e imputable al Propietario, quien dispondrá únicamente de 60 días naturales para mitigar la anomalía. Cabe destacar que no existe un riesgo real debido a que el uso de oficinas no se contrapone al desarrollo ni a la operación normal de las actividades del hotel.</p>
                     </div>
                 </div>
                 <div class="rec-item">
@@ -491,6 +495,56 @@
                         <p>Si el acuerdo se extingue por falta de licencias y el Propietario decide construir o habilitar hospedajes (hotel, condohotel, condo) en el sitio durante los 3 años subsecuentes, SCH tendrá el derecho de reactivar y forzar la reinstalación del contrato primario.</p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- 06 CONSECUENCIAS DE INCUMPLIMIENTO Y GARANTÍAS -->
+        <section class="card-presentation">
+            <span class="section-index">APARTADO 06</span>
+            <h2>Consecuencias de Incumplimiento y Cobro</h2>
+            <p class="intro-text">
+                Análisis de las implicaciones legales, operativas y patrimoniales en caso de impago de la Cuota de Terminación de $1,316,000 USD.
+            </p>
+
+            <div style="margin-bottom: 2rem;">
+                <div class="party-grid">
+                    <div class="party-card" style="border-left-color: #Ffbc06;">
+                        <div class="party-role">Mecanismo 01</div>
+                        <div class="party-name">Generación de Intereses Moratorios</div>
+                        <div class="party-detail">
+                            Cualquier cantidad exigible que no se pague a tiempo comenzará a generar intereses moratorios de forma automática. La tasa aplicable será la menor entre: (a) el límite máximo legal permitido, o (b) un 4% por encima de la tasa preferencial (<em>prime rate</em>) cobrada por Citibank para préstamos comerciales no garantizados a 90 días.
+                        </div>
+                    </div>
+                    
+                    <div class="party-card" style="border-left-color: #Ffbc06;">
+                        <div class="party-role">Mecanismo 02</div>
+                        <div class="party-name">Derecho de Compensación Bancaria</div>
+                        <div class="party-detail">
+                            El acuerdo otorga al Administrador la facultad de compensar adeudos directamente. Esto le permite, en cualquier momento y sin necesidad de notificación previa, cobrarse y transferir cualquier saldo o crédito que se encuentre a favor del Propietario en las cuentas bancarias operativas del hotel.
+                        </div>
+                    </div>
+
+                    <div class="party-card" style="border-left-color: #Ffbc06;">
+                        <div class="party-role">Mecanismo 03</div>
+                        <div class="party-name">Cobro por Vía Legal (Arbitraje ICC)</div>
+                        <div class="party-detail">
+                            Al superar el umbral de controversia litigable de $500,000 USD, se resolverá mediante Arbitraje administrado por la Cámara de Comercio Internacional (ICC) con sede en la Ciudad de México, compuesto por tres árbitros. El laudo será definitivo, vinculante y ejecutable en tribunales para forzar el cobro mediante embargo de la sociedad.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="legal-alert" style="background-color: #f8f9fa; border-left: 4px solid #262a36; padding: 2rem;">
+                <h4 style="font-weight: 700; color: #262a36; margin-bottom: 0.75rem; font-size: 1.1rem;">Garantías Personales y Exclusión de Aval</h4>
+                <p style="margin-bottom: 1rem; font-size: 0.95rem;">
+                    No se establece la figura de aval, fiador u obligado solidario que deba responder con su propio patrimonio personal. El contrato limita expresamente la responsabilidad de las personas físicas asociadas a la operación:
+                </p>
+                <div style="background-color: #ffffff; border: 1px solid #e9ecef; border-radius: 0.75rem; padding: 1.25rem; font-size: 0.9rem; color: #4a5060; font-style: italic; border-left: 3px solid #Ffbc06; margin-bottom: 1rem;">
+                    "Los socios, accionistas, miembros, funcionarios, directores, fiduciarios, representantes y afiliadas del Propietario nunca serán responsables personalmente por ninguna reclamación, y no procederá embargo alguno contra los activos personales de dichas personas por motivo de reclamaciones."
+                </div>
+                <p style="font-size: 0.95rem; font-weight: 600; color: #262a36;">
+                    Consecuentemente, el único patrimonio jurídicamente obligado para responder por esta contingencia es el perteneciente a la persona moral firmante del acuerdo (Desarrolladora Bali, S.A. de C.V.).
+                </p>
             </div>
         </section>
 
