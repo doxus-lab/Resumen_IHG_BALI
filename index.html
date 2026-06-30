@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha Técnica - Crowne Plaza Guadalajara Minerva</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* --- ESTILOS BASE Y TIPOGRAFÍA --- */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #262a36;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* --- PANTALLA DE BLOQUEO --- */
+        #lock-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #262a36;
+            z-index: 10000;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: #ffffff;
+            transition: opacity 0.5s ease;
+        }
+        .lock-container {
+            text-align: center; max-width: 400px; width: 90%;
+            padding: 2.5rem; background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+        .lock-logo-fallback {
+            width: 50px; height: 50px; background-color: #Ffbc06;
+            color: #262a36; font-weight: 900; font-size: 1.8rem;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; margin: 0 auto 1.5rem;
+        }
+        .lock-container h2 {
+            font-weight: 900; font-size: 1.4rem; margin-bottom: 0.5rem;
+        }
+        .lock-container p {
+            font-size: 0.85rem; color: #a0a5b5; margin-bottom: 1.5rem;
+        }
+        .lock-input {
+            width: 100%; padding: 1rem; border-radius: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.2); color: #ffffff;
+            text-align: center; margin-bottom: 1rem; outline: none;
+            font-size: 1rem;
+        }
+        .lock-btn {
+            width: 100%; padding: 1rem; background-color: #Ffbc06;
+            color: #262a36; border: none; border-radius: 0.75rem;
+            font-weight: 700; cursor: pointer; font-size: 1rem;
+        }
+
+        /* --- NAVEGACIÓN FIJA (STICKY NAV) --- */
+        .sticky-nav {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background-color: #262a36; border-bottom: 3px solid #Ffbc06;
+            z-index: 999; height: 70px;
+            display: flex; align-items: center; padding: 0 4%;
+        }
+        .logo-img {
+            height: 35px;
+            display: block;
+        }
+        .logo-fallback {
+            width: 35px; height: 35px; background-color: #Ffbc06;
+            color: #262a36; font-weight: 900; display: flex;
+            align-items: center; justify-content: center; border-radius: 50%;
+        }
+        .nav-title {
+            color: #ffffff; font-weight: 700; font-size: 0.9rem;
+            text-transform: uppercase; margin-left: 1rem;
+            border-left: 1px solid rgba(255, 255, 255, 0.2); padding-left: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- HERO HEADER --- */
+        .hero {
+            background-color: #262a36; color: #ffffff;
+            padding: 140px 4% 60px;
+        }
+        .hero-badge {
+            background-color: rgba(255, 188, 6, 0.15);
+            color: #Ffbc06;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 188, 6, 0.3);
+        }
+        .hero h1 {
+            font-weight: 900; font-size: 3rem; line-height: 1.1;
+            margin-bottom: 1.5rem; letter-spacing: -0.04em;
+        }
+        .hero p { 
+            font-size: 1.1rem; color: #a0a5b5; font-weight: 300; 
+            max-width: 800px;
+        }
+
+        /* --- CARDS DE PRESENTACIÓN --- */
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 4rem 4%; }
+        .card-presentation {
+            background: #ffffff; border: 1px solid #e9ecef;
+            border-radius: 1.5rem; padding: 3rem; margin-bottom: 4rem;
+            position: relative; box-shadow: 0 4px 30px rgba(0,0,0,0.02);
+        }
+        .section-index {
+            position: absolute; top: 3rem; right: 3rem;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em;
+            color: #262a36; opacity: 0.4; text-transform: uppercase;
+        }
+        .card-presentation h2 {
+            font-weight: 900; font-size: 2rem; margin-bottom: 1.5rem;
+            display: flex; align-items: center; letter-spacing: -0.03em;
+        }
+        .card-presentation h2::before {
+            content: ''; width: 6px; height: 1.8rem;
+            background-color: #Ffbc06; margin-right: 0.75rem; border-radius: 3px;
+        }
+        .intro-text {
+            font-size: 1.05rem; color: #4a5060; margin-bottom: 2rem;
+        }
+
+        /* --- TABLAS DOXUS --- */
+        .table-responsive { overflow-x: auto; margin-top: 1.5rem; }
+        .doxus-table { width: 100%; border-collapse: collapse; text-align: left; }
+        .doxus-table th { 
+            background: #262a36; color: #fff; padding: 1rem; 
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .doxus-table td { padding: 1.1rem; border-bottom: 1px solid #e9ecef; font-size: 0.95rem; color: #333946; }
+        .doxus-table tr:nth-child(even) td { background-color: #f8f9fa; }
+        .doc-id { font-weight: 700; background: #e9ecef; padding: 0.25rem 0.5rem; border-radius: 0.3rem; font-size: 0.85rem; }
+
+        /* --- GRID PARTES --- */
+        .party-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+        .party-card { background: #f8f9fa; padding: 1.5rem; border-radius: 1rem; border-left: 4px solid #262a36; }
+        .party-role { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: #6c757d; margin-bottom: 0.5rem; }
+        .party-name { font-weight: 700; font-size: 1.1rem; color: #262a36; margin-bottom: 0.5rem; }
+        .party-detail { font-size: 0.9rem; color: #4a5060; }
+
+        /* --- BLOQUE DE CONTROL DE OBJETO --- */
+        .object-details { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 1.25rem; padding: 2rem; margin-top: 2rem; }
+        .object-title { font-weight: 700; margin-bottom: 1rem; font-size: 1.1rem; color: #262a36; }
+        .object-list { list-style: none; }
+        .object-list li { position: relative; padding-left: 1.5rem; margin-bottom: 0.75rem; font-size: 0.95rem; }
+        .object-list li::before { content: '•'; position: absolute; left: 0; color: #Ffbc06; font-size: 1.5rem; line-height: 1; }
+
+        /* --- ALERTA LEGAL --- */
+        .legal-alert {
+            background-color: #f8f9fa; border-left: 4px solid #262a36;
+            border-radius: 0.5rem; padding: 1.5rem; margin-top: 1.5rem;
+            font-size: 0.95rem; color: #333946;
+        }
+
+        /* --- CAJA DE RESUMEN FINANCIERO (AMARILLO OBLIGATORIO) --- */
+        .financial-box { background: #Ffbc06; color: #262a36; padding: 2.5rem; border-radius: 1.5rem; margin-bottom: 2rem; }
+        .financial-box h3 { font-weight: 900; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 1.5rem; border-bottom: 2px solid rgba(38,42,54,0.1); padding-bottom: 0.5rem; }
+        .fin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+        .fin-stat .lbl { font-size: 0.8rem; text-transform: uppercase; font-weight: 600; opacity: 0.8; margin-bottom: 0.25rem; }
+        .fin-stat .val { font-size: 2rem; font-weight: 900; }
+
+        /* --- TIMELINE (DIAGNÓSTICO Y TIEMPOS) --- */
+        .timeline { border-left: 3px solid #e9ecef; padding-left: 2rem; margin: 3rem 0; }
+        .timeline-item { margin-bottom: 2.5rem; position: relative; }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-item::before {
+            content: ''; position: absolute; left: calc(-2rem - 8px);
+            top: 4px; width: 14px; height: 14px; border-radius: 50%;
+            background: #fff; border: 3px solid #262a36;
+        }
+        .timeline-date { font-weight: 900; font-size: 1.1rem; color: #262a36; margin-bottom: 0.25rem; }
+        .timeline-title { font-weight: 500; font-size: 0.95rem; color: #4a5060; }
+
+        /* --- RECOMENDACIONES --- */
+        .rec-item { display: flex; gap: 1.5rem; background: #f8f9fa; padding: 2rem; border-radius: 1rem; margin-bottom: 1.5rem; border: 1px solid #e9ecef; }
+        .rec-item:last-child { margin-bottom: 0; }
+        .rec-num { font-weight: 900; font-size: 1.5rem; color: #Ffbc06; line-height: 1; }
+        .rec-content h4 { font-weight: 700; font-size: 1.1rem; color: #262a36; margin-bottom: 0.5rem; }
+        .rec-content p { font-size: 0.95rem; color: #4a5060; }
+
+        /* --- FOOTER --- */
+        footer { background: #262a36; color: #fff; padding: 4rem 4% 3rem; text-align: center; border-top: 3px solid #Ffbc06; }
+        .footer-logo-container { margin-bottom: 2rem; }
+        .logo-img-footer { height: 42px; display: inline-block; } /* 20% más grande que los 35px del nav */
+        .footer-logo-fallback { width: 42px; height: 42px; background: #Ffbc06; color: #262a36; font-weight: 900; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; }
+        .signature { font-size: 1.1rem; font-weight: 900; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .copyright { font-size: 0.8rem; color: #a0a5b5; margin-bottom: 2.5rem; }
+        .disclaimer { font-size: 0.75rem; color: #7c8291; max-width: 900px; margin: 0 auto; text-align: justify; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; line-height: 1.6; }
+
+        @media (max-width: 768px) { 
+            .hero h1 { font-size: 2rem; } 
+            .card-presentation { padding: 2rem; margin-bottom: 2.5rem; } 
+            .section-index { position: relative; top: auto; right: auto; display: block; margin-bottom: 1rem; }
+            .fin-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .rec-item { flex-direction: column; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PANTALLA DE BLOQUEO INICIAL -->
+    <div id="lock-screen">
+        <div class="lock-container">
+            <div class="lock-logo-fallback">D</div>
+            <h2>Acceso al Documento</h2>
+            <p>Ingrese la clave de validación del proyecto.</p>
+            <input type="password" id="pw" class="lock-input" placeholder="Contraseña">
+            <button onclick="check()" class="lock-btn">Acceder</button>
+            <div id="err" style="color: #ff4d4d; display: none; margin-top: 1rem; font-size: 0.85rem;">Clave incorrecta.</div>
+        </div>
+    </div>
+
+    <!-- BARRA SUPERIOR FIJA -->
+    <nav class="sticky-nav">
+        <div style="display: flex; align-items: center;">
+            <img src="logo.png" alt="DOXUS" class="logo-img" onerror="this.style.display='none'; document.getElementById('nav-fallback').style.display='flex';">
+            <div id="nav-fallback" class="logo-fallback" style="display:none;">D</div>
+            <span class="nav-title">Análisis de Estructura Contractual</span>
+        </div>
+    </nav>
+
+    <!-- HERO HEADER -->
+    <header class="hero">
+        <span class="hero-badge">Estudio de Viabilidad y Estructura</span>
+        <h1>Contrato de Administración y Servicios Técnicos<br><span style="color: #Ffbc06;">Crowne Plaza Guadalajara Minerva</span></h1>
+        <p>
+            Análisis de la estructura jurídica que regirá el desarrollo y operación del complejo. La precisión técnica en la delimitación de facultades permite mitigar riesgos financieros y asegurar la viabilidad operativa de la marca bajo estándares de control integrales.
+        </p>
+    </header>
+
+    <main class="main-container">
+
+        <!-- 01 INVENTARIO DE DOCUMENTOS -->
+        <section class="card-presentation">
+            <span class="section-index">APARTADO 01</span>
+            <h2>Inventario de Documentos</h2>
+            <p class="intro-text">
+                Régimen documental base examinado para determinar la vinculación obligacional del proyecto inmobiliario y hotelero:
+            </p>
+            <div class="table-responsive">
+                <table class="doxus-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Instrumento Contractual</th>
+                            <th>Área del Proyecto</th>
+                            <th>Alcance Técnico y de Control</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="doc-id">DOC-01</span></td>
+                            <td><strong>Contrato de Administración (Management Agreement)</strong></td>
+                            <td>Área de Hospitalidad</td>
+                            <td>Operación exclusiva, cobro de flujos brutos, incentivos y régimen de penalizaciones aplicables al propietario.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="doc-id">DOC-02</span></td>
+                            <td><strong>Contrato de Servicios Técnicos (TSA)</strong></td>
+                            <td>Ingeniería, Arquitectura y Diseño</td>
+                            <td>Parámetros de adecuación física, consultoría especializada del SCH y control de deficiencias.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="doc-id">DOC-03</span></td>
+                            <td><strong>Anexo F</strong></td>
+                            <td>Instalaciones Físicas</td>
+                            <td>Descripción técnica detallada y límites del complejo físico Crowne Plaza.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 02 ANÁLISIS CONTRACTUAL Y PARTES -->
+        <section class="card-presentation">
+            <span class="section-index">APARTADO 02</span>
+            <h2>Análisis de las Partes y Objeto</h2>
+            <p class="intro-text">
+                Estructura estructurada bajo un esquema tripartito de afiliadas para centralizar los estándares de la marca InterContinental Hotels Group (IHG) delimitando la responsabilidad patrimonial.
+            </p>
+            
+            <div class="party-grid">
+                <div class="party-card">
+                    <div class="party-role">El Propietario (Owner)</div>
+                    <div class="party-name">Desarrolladora Bali, S.A. de C.V.</div>
+                    <div class="party-detail">Representada legalmente por el Ing. José Luis Barajas Lima. Titular del activo, responsable del financiamiento total y la construcción de la infraestructura física.</div>
+                </div>
+                <div class="party-card">
+                    <div class="party-role">El Administrador (Manager)</div>
+                    <div class="party-name">Holiday Inn Mexicana, S.A.</div>
+                    <div class="party-detail">Entidad corporativa de IHG encargada de llevar a cabo la operación de forma directa y exclusiva bajo el sello Crowne Plaza.</div>
+                </div>
+                <div class="party-card">
+                    <div class="party-role">El Prestador de Servicios Técnicos (SCH)</div>
+                    <div class="party-name">Six Continents Hotels, Inc.</div>
+                    <div class="party-detail">Corporación constituida bajo las leyes de Delaware, responsable de verificar la consultoría técnica y el cumplimiento de los estándares físicos del hotel.</div>
+                </div>
+            </div>
+
+            <div class="object-details">
+                <div class="object-title">Delimitación Física del Complejo (Uso Mixto)</div>
+                <ul class="object-list">
+                    <li><strong>Componente Hotelero:</strong> Instalaciones integrales especificadas en el Anexo F, operando estrictamente bajo marca Crowne Plaza.</li>
+                    <li><strong>Componente Corporativo/Comercial:</strong> Área de aproximadamente 2,462 metros cuadrados (26,500 pies cuadrados rentables) para oficinas y locales complementarios.</li>
+                    <li><strong>Componente de Estacionamiento:</strong> Garantía de un mínimo de 90 cajones exclusivos destinados al hotel, sin costo o cobro de tarifa para la operación diaria.</li>
+                </ul>
+            </div>
+
+            <div class="legal-alert">
+                <strong>Cláusula de Exclusividad y Restricción de Uso:</strong> El acuerdo prohíbe explícitamente que cualquier otra porción de las áreas o componentes del predio sea operada bajo el concepto de hotel, condohotel o tiempo compartido por parte de Desarrolladora Bali o de terceros. Este parámetro busca salvaguardar la competitividad del complejo hotelero principal.
+            </div>
+        </section>
+
+        <!-- 03 ESQUEMA DE PAGOS -->
+        <section class="card-presentation">
+            <span class="section-index">APARTADO 03</span>
+            <h2>Esquema de Contraprestaciones y Pagos</h2>
+            <p class="intro-text">
+                Estructuración de flujos con base en la jerarquía del acuerdo. El modelo establece cobros directos sobre Ingresos Brutos Ajustados, de manera separada a las tarifas de incentivo ligadas a la Utilidad Bruta Operativa Ajustada (AGOP).
+            </p>
+
+            <!-- CAJA RESALTADA EN AMARILLO OBLIGATORIA -->
+            <div class="financial-box">
+                <h3>Resumen Financiero del Acuerdo (Servicios Técnicos)</h3>
+                <div class="fin-grid">
+                    <div class="fin-stat">
+                        <div class="lbl">Monto Total Contratado (TSA)</div>
+                        <div class="val">$150,000 USD</div>
+                    </div>
+                    <div class="fin-stat">
+                        <div class="lbl">Monto Pagado</div>
+                        <div class="val">$75,000 USD</div>
+                    </div>
+                    <div class="fin-stat">
+                        <div class="lbl">Monto Pendiente</div>
+                        <div class="val">$75,000 USD</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="doxus-table">
+                    <thead>
+                        <tr>
+                            <th>Concepto</th>
+                            <th>Monto / Tasa</th>
+                            <th>Base de Cálculo / Aplicación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tarifa Base de Administración</td>
+                            <td><strong>3%</strong></td>
+                            <td>Ingresos Brutos Ajustados</td>
+                        </tr>
+                        <tr>
+                            <td>Tarifa de Incentivo</td>
+                            <td><strong>10%</strong></td>
+                            <td>Utilidad Bruta Operativa Ajustada (AGOP)</td>
+                        </tr>
+                        <tr>
+                            <td>Tarifas de Servicios Técnicos (TSA)</td>
+                            <td><strong>$150,000 USD</strong></td>
+                            <td>Liquidación en 4 hitos periódicos de $37,500 USD c/u</td>
+                        </tr>
+                        <tr>
+                            <td>Tasa IHG One Rewards Club</td>
+                            <td><strong>4.55%</strong></td>
+                            <td>Ingresos del folio que califiquen</td>
+                        </tr>
+                        <tr>
+                            <td>Tarifa de Servicios Tecnológicos</td>
+                            <td><strong>$16.17 USD</strong></td>
+                            <td>Por habitación / mes fiscal</td>
+                        </tr>
+                        <tr>
+                            <td>Tarifa de Contabilidad</td>
+                            <td><strong>$8.00 USD</strong></td>
+                            <td>Por habitación / mes fiscal</td>
+                        </tr>
+                        <tr>
+                            <td>Contribución de Servicios</td>
+                            <td><strong>3%</strong></td>
+                            <td>Ingresos brutos por habitaciones (Rooms Revenue)</td>
+                        </tr>
+                        <tr>
+                            <td>Reserva de FF&E</td>
+                            <td><strong>5%</strong></td>
+                            <td>Ingresos Brutos Ajustados (Fondo dedicado a renovación física)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="legal-alert" style="border-left: 4px solid #Ffbc06;">
+                <strong>Nota sobre cargos reembolsables y mora:</strong> Es necesario asegurar la auditoría de los gastos directos (out-of-pocket) reembolsables al SCH. Asimismo, conforme a la Sección 22.02 del Contrato de Administración (MA), cualquier pago atrasado incurre en intereses de tipo moratorio que inciden negativamente en el flujo del Propietario.
+            </div>
+        </section>
+
+        <!-- 04 DIAGNÓSTICO Y TIEMPOS -->
+        <section class="card-presentation">
+            <span class="section-index">APARTADO 04</span>
+            <h2>Diagnóstico y Plazos Críticos</h2>
+            <p class="intro-text">
+                Régimen temporal y fechas hito que actúan como mecanismos de control de cumplimiento y mitigación de retrasos de obra en el activo físico.
+            </p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">31 de Julio, 2026</div>
+                    <div class="timeline-title"><strong>Fecha de Planos:</strong> Entrega e integración formal de diseño del complejo para aprobación técnica de SCH.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">15 de Diciembre, 2026</div>
+                    <div class="timeline-title"><strong>Fecha Límite de Permisos:</strong> Obtención de todas las licencias de edificación. Condición resolutoria de alta penalidad.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">01 de Septiembre, 2027</div>
+                    <div class="timeline-title"><strong>Inicio de Construcción:</strong> Despliegue de obra física de la Desarrolladora Bali.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">01 de Marzo, 2029</div>
+                    <div class="timeline-title"><strong>Fecha Límite de Apertura:</strong> Inicio formal de operaciones. Vigencia base de 25 años más dos opciones de prórroga de 5 años cada una.</div>
+                </div>
+            </div>
+
+            <div class="legal-alert">
+                <strong>Control de Calidad y Terminación Sustancial:</strong> SCH no autorizará el inicio de la operación mercantil si existen puntos sin solventar en la <em>"Deficiency List"</em> (Lista de Deficiencias). De conformidad con el Artículo 10 del Contrato de Servicios Técnicos, si el Propietario no subsana los requerimientos dentro de los 30 días posteriores a la apertura, SCH cuenta con la facultad unilateral de ejecutar las reparaciones de manera directa y facturarlas de inmediato al Propietario.
+            </div>
+        </section>
+
+        <!-- 05 RECOMENDACIONES -->
+        <section class="card-presentation">
+            <span class="section-index">APARTADO 05</span>
+            <h2>Recomendaciones Técnicas de Control</h2>
+            <p class="intro-text">
+                Puntos críticos identificados durante la revisión de los instrumentos de administración y consultoría técnica hotelera:
+            </p>
+
+            <div class="rec-list">
+                <div class="rec-item">
+                    <div class="rec-num">01</div>
+                    <div class="rec-content">
+                        <h4>Penalización por Licencias y Estructura de Garantías</h4>
+                        <p>El derecho de terminación por falta de licencias en diciembre de 2026 conlleva el pago de los daños liquidos del anterior contrato equivalente a la cantidad de $1,316,000 USD. Es importante mencionar que en este caso no estan pidiendo aval, por lo que solo podrían reclamar ante la misma razón social que firma el contrato.</p>
+                    </div>
+                </div>
+                <div class="rec-item">
+                    <div class="rec-num">02</div>
+                    <div class="rec-content">
+                        <h4>Control ante Decisiones del Condominio General (Detrimental Actions)</h4>
+                        <p>Decisiones de la Asociación de Propietarios de los componentes comerciales o corporativos que afecten negativamente el estándar del hotel facultan al Administrador a rescindir de forma justificada e imputable al Propietario, quien dispondrá únicamente de 60 días naturales para mitigar la anomalía.</p>
+                    </div>
+                </div>
+                <div class="rec-item">
+                    <div class="rec-num">03</div>
+                    <div class="rec-content">
+                        <h4>Alineación ante Aportaciones y Mejoras de Capital</h4>
+                        <p>La Sección 1.03 del acuerdo de administración obliga al Propietario a financiar las mejoras que el Administrador determine indispensables con base en su juicio mercantil. Es recomendable establecer márgenes de concurrencia y procesos de revisión colegiados.</p>
+                    </div>
+                </div>
+                <div class="rec-item">
+                    <div class="rec-num">04</div>
+                    <div class="rec-content">
+                        <h4>Limitaciones en Transacciones de Venta (Right of First Offer)</h4>
+                        <p>El Artículo 14.05 del Management Agreement otorga al Administrador el Derecho de Primera Oferta en caso de intenciones de transferencia del activo físico. Este proceso de notificación debe integrarse en la planeación y el cronograma de cualquier posible desinversión del propietario.</p>
+                    </div>
+                </div>
+                <div class="rec-item">
+                    <div class="rec-num">05</div>
+                    <div class="rec-content">
+                        <h4>Restricciones en Caso de Reinstalación Contractual</h4>
+                        <p>Si el acuerdo se extingue por falta de licencias y el Propietario decide construir o habilitar hospedajes (hotel, condohotel, condo) en el sitio durante los 3 años subsecuentes, SCH tendrá el derecho de reactivar y forzar la reinstalación del contrato primario.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo-container">
+            <img src="logo.png" alt="DOXUS" class="logo-img-footer" onerror="this.style.display='none'; document.getElementById('footer-fallback').style.display='flex';">
+            <div id="footer-fallback" class="footer-logo-fallback" style="display:none;">D</div>
+        </div>
+        <div class="signature">MAXIMILIANO ARÉCHIGA-MORALES</div>
+        <div class="copyright">© 2026 DOXUS - TODOS LOS DERECHOS RESERVADOS</div>
+        <div class="disclaimer">
+            LA INFORMACIÓN PRESENTADA AQUÍ ES UN RESUMEN GENERAL DE LA OPERACIÓN QUE FUE REFERIDA PARA SU REVISIÓN. SE RECOMIENDA CONSULTAR CADA CONTRATO RELACIONADO Y COMENTAR CON EL PROFESIONISTA DE SU CONFIANZA EL ALCANCE DE LAS DECISIONES.
+        </div>
+    </footer>
+
+    <!-- CONTROL DE ACCESO -->
+    <script>
+        function check() {
+            var val = document.getElementById('pw').value;
+            if(val === 'BALI') {
+                var lock = document.getElementById('lock-screen');
+                lock.style.opacity = '0';
+                setTimeout(function() {
+                    lock.style.display = 'none';
+                }, 500);
+            } else {
+                document.getElementById('err').style.display = 'block';
+                document.getElementById('pw').value = '';
+            }
+        }
+        document.getElementById('pw').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                check();
+            }
+        });
+    </script>
+</body>
+</html>
