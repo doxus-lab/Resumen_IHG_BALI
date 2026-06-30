@@ -170,6 +170,28 @@
             font-size: 0.95rem; color: #333946;
         }
 
+        /* --- SUBTÍTULOS Y SECCIONES INTERNAS --- */
+        .subsection-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #262a36;
+            margin: 2.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .subsection-tag {
+            font-size: 0.75rem;
+            font-weight: 900;
+            background-color: #262a36;
+            color: #ffffff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            text-transform: uppercase;
+        }
+
         /* --- CAJA DE RESUMEN FINANCIERO (AMARILLO OBLIGATORIO) --- */
         .financial-box { background: #Ffbc06; color: #262a36; padding: 2.5rem; border-radius: 1.5rem; margin-bottom: 2rem; }
         .financial-box h3 { font-weight: 900; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 1.5rem; border-bottom: 2px solid rgba(38,42,54,0.1); padding-bottom: 0.5rem; }
@@ -211,6 +233,7 @@
             .section-index { position: relative; top: auto; right: auto; display: block; margin-bottom: 1rem; }
             .fin-grid { grid-template-columns: 1fr; gap: 1.5rem; }
             .rec-item { flex-direction: column; gap: 0.5rem; }
+            .subsection-title { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
         }
     </style>
 </head>
@@ -333,12 +356,12 @@
             </div>
         </section>
 
-        <!-- 03 ESQUEMA DE PAGOS -->
+        <!-- 03 ESQUEMA DE contraprestaciones Y PAGOS (AMPLIADO) -->
         <section class="card-presentation">
             <span class="section-index">APARTADO 03</span>
             <h2>Esquema de Contraprestaciones y Pagos</h2>
             <p class="intro-text">
-                Estructuración de flujos con base en la jerarquía del acuerdo. El modelo establece cobros directos sobre Ingresos Brutos Ajustados, de manera separada a las tarifas de incentivo ligadas a la Utilidad Bruta Operativa Ajustada (AGOP).
+                Asignación pormenorizada de flujos de caja, compromisos de capital inicial, tarifas operativas y el régimen de reembolso de gastos aplicables a los contratos del proyecto.
             </p>
 
             <!-- CAJA RESALTADA EN AMARILLO OBLIGATORIA -->
@@ -350,73 +373,183 @@
                         <div class="val">$150,000 USD</div>
                     </div>
                     <div class="fin-stat">
-                        <div class="lbl">Monto Pagado</div>
+                        <div class="lbl">Monto Pagado (Hito 1 y 2)</div>
                         <div class="val">$75,000 USD</div>
                     </div>
                     <div class="fin-stat">
-                        <div class="lbl">Monto Pendiente</div>
+                        <div class="lbl">Monto Pendiente (Hito 3 y 4)</div>
                         <div class="val">$75,000 USD</div>
                     </div>
                 </div>
             </div>
 
-            <div class="table-responsive">
+            <!-- SUBSECCIÓN 1: CONTRATO DE SERVICIOS TÉCNICOS (TSA) -->
+            <div class="subsection-title">
+                <span>1. Contrato de Servicios Técnicos (TSA)</span>
+                <span class="subsection-tag">Preapertura / Diseño</span>
+            </div>
+            <p class="intro-text" style="font-size: 0.95rem; margin-bottom: 1rem;">
+                Abarca de forma exclusiva la asistencia técnica en el diseño arquitectónico, planificación e ingeniería previos al arranque comercial del hotel.
+            </p>
+            
+            <div class="table-responsive" style="margin-bottom: 1.5rem;">
                 <table class="doxus-table">
                     <thead>
                         <tr>
-                            <th>Concepto</th>
-                            <th>Monto / Tasa</th>
-                            <th>Base de Cálculo / Aplicación</th>
+                            <th>Hito de Pago</th>
+                            <th>Monto / Proporción</th>
+                            <th>Condición o Evento Desencadenante (Trigger)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Tarifa Base de Administración</td>
-                            <td><strong>3%</strong></td>
-                            <td>Ingresos Brutos Ajustados</td>
+                            <td><strong>Cuota 1</strong></td>
+                            <td>$37,500 USD (25%)</td>
+                            <td>Fecha de Inicio de Vigencia (al firmar el instrumento).</td>
                         </tr>
                         <tr>
-                            <td>Tarifa de Incentivo</td>
-                            <td><strong>10%</strong></td>
-                            <td>Utilidad Bruta Operativa Ajustada (AGOP)</td>
+                            <td><strong>Cuota 2</strong></td>
+                            <td>$37,500 USD (25%)</td>
+                            <td>Presentación y entrega formal del Diseño Esquemático Arquitectónico y Programación.</td>
                         </tr>
                         <tr>
-                            <td>Tarifas de Servicios Técnicos (TSA)</td>
-                            <td><strong>$150,000 USD</strong></td>
-                            <td>Liquidación en 4 hitos periódicos de $37,500 USD c/u</td>
+                            <td><strong>Cuota 3</strong></td>
+                            <td>$37,500 USD (25%)</td>
+                            <td>Presentación formal de los juegos completos de Documentos de Construcción al 100%.</td>
                         </tr>
                         <tr>
-                            <td>Tasa IHG One Rewards Club</td>
-                            <td><strong>4.55%</strong></td>
-                            <td>Ingresos del folio que califiquen</td>
-                        </tr>
-                        <tr>
-                            <td>Tarifa de Servicios Tecnológicos</td>
-                            <td><strong>$16.17 USD</strong></td>
-                            <td>Por habitación / mes fiscal</td>
-                        </tr>
-                        <tr>
-                            <td>Tarifa de Contabilidad</td>
-                            <td><strong>$8.00 USD</strong></td>
-                            <td>Por habitación / mes fiscal</td>
-                        </tr>
-                        <tr>
-                            <td>Contribución de Servicios</td>
-                            <td><strong>3%</strong></td>
-                            <td>Ingresos brutos por habitaciones (Rooms Revenue)</td>
-                        </tr>
-                        <tr>
-                            <td>Reserva de FF&E</td>
-                            <td><strong>5%</strong></td>
-                            <td>Ingresos Brutos Ajustados (Fondo dedicado a renovación física)</td>
+                            <td><strong>Cuota 4</strong></td>
+                            <td>$37,500 USD (25%)</td>
+                            <td>Arranque físico de la edificación (colocación de la primera piedra).</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="legal-alert" style="border-left: 4px solid #Ffbc06;">
-                <strong>Nota sobre cargos reembolsables y mora:</strong> Es necesario asegurar la auditoría de los gastos directos (out-of-pocket) reembolsables al SCH. Asimismo, conforme a la Sección 22.02 del Contrato de Administración (MA), cualquier pago atrasado incurre en intereses de tipo moratorio que inciden negativamente en el flujo del Propietario.
+            <div class="legal-alert" style="background-color: #f8f9fa; border-left: 3px solid #262a36; margin-bottom: 1.5rem; font-size: 0.9rem;">
+                <strong>Garantía de Liquidación Anticipada:</strong> En el supuesto de que ocurra la Fecha de Apertura antes de haberse liquidado la totalidad de las cuatro cuotas del TSA, el saldo remanente insoluto deberá ser cubierto en su totalidad exactamente en la Fecha de Apertura efectiva del hotel.
             </div>
+
+            <div class="legal-alert" style="background-color: #f8f9fa; border-left: 3px solid #Ffbc06; margin-bottom: 2rem; font-size: 0.9rem;">
+                <strong>Gastos Directos de Desembolso (Out-of-Pocket):</strong> Las erogaciones extraordinarias de SCH relacionadas con traslados, viáticos u hospedajes del personal técnico vencerán y serán exigibles dentro de los 10 días naturales posteriores a la presentación y entrega física de la correspondiente factura de cobro.
+            </div>
+
+            <!-- SUBSECCIÓN 2: CONTRATO DE ADMINISTRACIÓN -->
+            <div class="subsection-title">
+                <span>2. Contrato de Administración</span>
+                <span class="subsection-tag">Operación y Flujos</span>
+            </div>
+
+            <!-- A. Pagos Previos a la Apertura -->
+            <div style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+                <h4 style="font-weight: 700; margin-bottom: 0.5rem; font-size: 1rem; color: #262a36;">A. Reservas y Fondeos Previos a la Apertura</h4>
+                <div class="party-grid">
+                    <div class="party-card">
+                        <div class="party-role">Capital de Trabajo Inicial</div>
+                        <div class="party-name">$300,000 USD</div>
+                        <div class="party-detail">
+                            Debe ser depositado en la cuenta del hotel a más tardar 60 días calendario antes de la Fecha de Apertura prevista (o, en su defecto, en la Fecha de Apertura efectiva).
+                        </div>
+                    </div>
+                    <div class="party-card">
+                        <div class="party-role">Gastos de Preapertura</div>
+                        <div class="party-name">Fondeo Mínimo Anticipado</div>
+                        <div class="party-detail">
+                            El primer desembolso (equivalente a los primeros 60 días de gastos proyectados) se fondeará a más tardar 30 días antes del inicio de servicios del Administrador. Posteriormente, se mantendrá un fondeo mensual por adelantado no menor a 60 días de gastos presupuestados.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- B. Pagos Operativos Periódicos -->
+            <div style="margin-top: 2rem; margin-bottom: 1.5rem;">
+                <h4 style="font-weight: 700; margin-bottom: 0.5rem; font-size: 1rem; color: #262a36;">B. Pagos Operativos Periódicos (Durante Operación)</h4>
+                <table class="doxus-table">
+                    <thead>
+                        <tr>
+                            <th>Frecuencia</th>
+                            <th>Conceptos Cobrados</th>
+                            <th>Fecha o Hito Límite de Pago</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Mensuales (Fecha Fija)</strong></td>
+                            <td>
+                                • Tarifa Base por Administración (3% Ingresos Brutos).<br>
+                                • Tarifa Contable y Tarifa de Mensajería Electrónica.<br>
+                                • Tarifas del Sistema de Marca (Lealtad, Sistemas).
+                            </td>
+                            <td>A más tardar el decimoquinto (15º) día del Mes Fiscal o calendario inmediato posterior.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mensuales (Sin Fecha Fija)</strong></td>
+                            <td>• Contribución a la Reserva de FF&E (Mobiliario, Accesorios y Equipo - escala del 5%).</td>
+                            <td>Depósito directo y periódico en la Cuenta de Reserva de FF&E durante el mes correspondiente.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Trimestrales</strong></td>
+                            <td>• Tarifa de Administración por Incentivos (10% sobre AGOP).</td>
+                            <td>Se retira sobre base estimada y proyectada a más tardar el decimoquinto (15º) día del Trimestre Fiscal inmediato siguiente.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Anuales (Ajustes)</strong></td>
+                            <td>• Cuadres, conciliaciones y ajustes en efectivo de tarifas del periodo anterior.</td>
+                            <td>Dentro de los 15 días posteriores a la recepción por parte del Propietario del Estado Operativo Anual auditado.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- C. Pagos Extraordinarios -->
+            <div style="margin-top: 2rem; margin-bottom: 1.5rem;">
+                <h4 style="font-weight: 700; margin-bottom: 0.5rem; font-size: 1rem; color: #262a36;">C. Requerimientos Extraordinarios de Capital y Emergencias</h4>
+                <div class="party-grid">
+                    <div class="party-card" style="border-left-color: #bd1c1c;">
+                        <div class="party-role">Solicitud de Fondos Operativos</div>
+                        <div class="party-name">Plazo de 5 Días Hábiles</div>
+                        <div class="party-detail">
+                            En caso de déficit de liquidez en la cuenta del hotel, tras la notificación formal del Administrador, el Propietario está obligado a cubrir el saldo en un plazo no mayor a 5 días hábiles.
+                        </div>
+                    </div>
+                    <div class="party-card" style="border-left-color: #bd1c1c;">
+                        <div class="party-role">Fondos para Reposición de Capital</div>
+                        <div class="party-name">Plazo de 15 Días Naturales</div>
+                        <div class="party-detail">
+                            Erogaciones extraordinarias para mantener el estándar físico del hotel. El Propietario dispone de 15 días tras la recepción de la solicitud para fondear las cuentas correspondientes.
+                        </div>
+                    </div>
+                    <div class="party-card" style="border-left-color: #bd1c1c;">
+                        <div class="party-role">Reposición de la Reserva de FF&E</div>
+                        <div class="party-name">Plazo de 30 Días Naturales</div>
+                        <div class="party-detail">
+                            Si el Administrador requiere disponer de los fondos de la cuenta de reserva de FF&E para resarcir faltantes de la operación diaria, el Propietario tiene 30 días para reponer dicho fondo.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- D. Pagos de Terminación Anticipada -->
+            <div style="margin-top: 2rem;">
+                <h4 style="font-weight: 700; margin-bottom: 0.5rem; font-size: 1rem; color: #262a36;">D. Indemnizaciones y Daños Liquidados por Terminación Anticipada</h4>
+                <div class="party-grid">
+                    <div class="party-card" style="background-color: #f8f9fa; border-left-color: #262a36;">
+                        <div class="party-role">Terminación por Falta de Permisos</div>
+                        <div class="party-name">$1,316,000 USD</div>
+                        <div class="party-detail">
+                            Si el Propietario rescinde por no obtener permisos antes del 15 de diciembre de 2026, pagará esta suma a más tardar en la Fecha de Terminación efectiva.
+                        </div>
+                    </div>
+                    <div class="party-card" style="background-color: #f8f9fa; border-left-color: #262a36;">
+                        <div class="party-role">Terminación por Incumplimiento del Propietario</div>
+                        <div class="party-name">Plazo de 7 Días Naturales</div>
+                        <div class="party-detail">
+                            Si el contrato expira por falta contractual del Propietario, la Tarifa de Terminación se saldará en un plazo máximo de 7 días posteriores a que el Administrador defina la cuenta bancaria.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
         <!-- 04 DIAGNÓSTICO Y TIEMPOS -->
