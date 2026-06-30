@@ -69,7 +69,7 @@
             position: fixed; top: 0; left: 0; width: 100%;
             background-color: #262a36; border-bottom: 3px solid #Ffbc06;
             z-index: 999; height: 70px;
-            display: flex; align-items: center; padding: 0 4%;
+            display: flex; align-items: center; justify-content: space-between; padding: 0 4%;
         }
         .logo-img {
             height: 35px;
@@ -85,6 +85,46 @@
             text-transform: uppercase; margin-left: 1rem;
             border-left: 1px solid rgba(255, 255, 255, 0.2); padding-left: 1rem;
             letter-spacing: 0.05em;
+        }
+        
+        /* Contenedor de acciones del Nav */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* --- BOTONES DE ACCIÓN --- */
+        .print-btn, .code-link-btn {
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+        .print-btn {
+            background-color: #Ffbc06;
+            color: #262a36;
+        }
+        .print-btn:hover {
+            background-color: #e5a905;
+        }
+        .code-link-btn {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .code-link-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .print-btn:active, .code-link-btn:active {
+            transform: scale(0.97);
         }
 
         /* --- HERO HEADER --- */
@@ -259,6 +299,83 @@
         .copyright { font-size: 0.8rem; color: #a0a5b5; margin-bottom: 2.5rem; }
         .disclaimer { font-size: 0.75rem; color: #7c8291; max-width: 900px; margin: 0 auto; text-align: justify; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; line-height: 1.6; }
 
+        /* --- CONFIGURACIONES E IMPRESIÓN PDF PERFECTO --- */
+        @media print {
+            /* Ocultar interfaz interactiva y pantallas de autenticación */
+            #lock-screen, .sticky-nav, .print-btn, .code-link-btn {
+                display: none !important;
+            }
+            body {
+                background-color: #ffffff !important;
+                color: #262a36 !important;
+                padding-top: 0 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .hero {
+                padding: 3rem 0 2rem !important;
+                background-color: #262a36 !important;
+                color: #ffffff !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .hero p {
+                color: #a0a5b5 !important;
+            }
+            .main-container {
+                padding: 2rem 0 !important;
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+            /* Evitar cortes indeseados a la mitad de una tarjeta */
+            .card-presentation {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                box-shadow: none !important;
+                border: 1px solid #e9ecef !important;
+                margin-bottom: 2.5rem !important;
+                padding: 2.5rem !important;
+            }
+            .financial-box {
+                background-color: #Ffbc06 !important;
+                color: #262a36 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            .sintesis-item, .party-card, .timeline-item, .rec-item {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            /* Asegurar que las tablas mantengan sus fondos e idoneidad */
+            .doxus-table th {
+                background-color: #262a36 !important;
+                color: #ffffff !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .doxus-table tr:nth-child(even) td {
+                background-color: #f8f9fa !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .doc-id {
+                background-color: #e9ecef !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            footer {
+                background-color: #262a36 !important;
+                color: #ffffff !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 768px) { 
             .hero h1 { font-size: 2rem; } 
             .card-presentation { padding: 2rem; margin-bottom: 2.5rem; } 
@@ -266,6 +383,8 @@
             .fin-grid { grid-template-columns: 1fr; gap: 1.5rem; }
             .rec-item { flex-direction: column; gap: 0.5rem; }
             .subsection-title { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+            .nav-actions { gap: 0.4rem; }
+            .code-link-btn span { display: none; } /* Ocultar texto en móviles pequeños */
         }
     </style>
 </head>
@@ -293,6 +412,24 @@
             <img src="logo.png" alt="DOXUS" class="logo-img" onerror="this.style.display='none'; document.getElementById('nav-fallback').style.display='flex';">
             <div id="nav-fallback" class="logo-fallback" style="display:none;">D</div>
             <span class="nav-title">Análisis de Estructura Contractual</span>
+        </div>
+        <div class="nav-actions">
+            <!-- Enlace relativo a otro archivo del mismo repositorio -->
+            <a href="./codigo_adicional.html" class="code-link-btn" title="Ver Código Adicional en el Repositorio">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                <span>Código Adicional</span>
+            </a>
+            <button onclick="window.print()" class="print-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 9V2h12v7"></path>
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                    <rect x="6" y="14" width="12" height="8"></rect>
+                </svg>
+                Imprimir / PDF
+            </button>
         </div>
     </nav>
 
@@ -629,7 +766,7 @@
             </div>
 
             <div class="legal-alert">
-                <strong>Control de Calidad y Terminación Sustancial:</strong> SCH no autorizará el inicio de la operación mercantil si existen puntos sin solventar en la <em>"Deficiency List"</em> (Lista de Deficiencias). De conformidad con el Artículo 10 del Contrato de Servicios Técnicos, si el Propietario no subsana los requerimientos dentro de los 30 días posteriores a la apertura, SCH cuenta con la facultad unilateral de ejecutar las reparaciones de manera directa y facturarlas de inmediato al Propietario.
+                <strong>Control de Calidad y Terminación Sustancial:</strong> SCH no autorizará el inicio de la operation mercantil si existen puntos sin solventar en la <em>"Deficiency List"</em> (Lista de Deficiencias). De conformidad con el Artículo 10 del Contrato de Servicios Técnicos, si el Propietario no subsana los requerimientos dentro de los 30 días posteriores a la apertura, SCH cuenta con la facultad unilateral de ejecutar las reparaciones de manera directa y facturarlas de inmediato al Propietario.
             </div>
         </section>
 
