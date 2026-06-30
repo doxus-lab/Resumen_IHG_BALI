@@ -218,6 +218,38 @@
         .rec-content h4 { font-weight: 700; font-size: 1.1rem; color: #262a36; margin-bottom: 0.5rem; }
         .rec-content p { font-size: 0.95rem; color: #4a5060; }
 
+        /* --- SÍNTESIS LIST STYLES --- */
+        .sintesis-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+        .sintesis-item {
+            display: flex;
+            gap: 1.25rem;
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid #e9ecef;
+            border-left: 4px solid #Ffbc06;
+        }
+        .sintesis-num {
+            font-weight: 900;
+            color: #262a36;
+            font-size: 1.1rem;
+            line-height: 1;
+        }
+        .sintesis-text strong {
+            color: #262a36;
+            font-weight: 700;
+        }
+        .sintesis-text p {
+            font-size: 0.95rem;
+            color: #4a5060;
+            margin-top: 0.25rem;
+        }
+
         /* --- FOOTER --- */
         footer { background: #262a36; color: #fff; padding: 4rem 4% 3rem; text-align: center; border-top: 3px solid #Ffbc06; }
         .footer-logo-container { margin-bottom: 2rem; }
@@ -275,50 +307,67 @@
 
     <main class="main-container">
 
-        <!-- 01 INVENTARIO DE DOCUMENTOS -->
-        <section class="card-presentation">
-            <span class="section-index">APARTADO 01</span>
-            <h2>Inventario de Documentos</h2>
-            <p class="intro-text">
-                Régimen documental base examinado para determinar la vinculación obligacional del proyecto inmobiliario y hotelero:
+        <!-- FICHA SÍNTESIS RECOMENDACIÓN -->
+        <section class="card-presentation" style="border-top: 4px solid #Ffbc06;">
+            <span class="section-index">SÍNTESIS</span>
+            <h2>Ficha Síntesis Recomendación</h2>
+            <p class="intro-text" style="font-weight: 500; color: #262a36; margin-bottom: 1.5rem;">
+                Se recomienda la firma del presente contrato en virtud de los siguientes fundamentos técnicos y de negociación alcanzados:
             </p>
-            <div class="table-responsive">
-                <table class="doxus-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Instrumento Contractual</th>
-                            <th>Área del Proyecto</th>
-                            <th>Alcance Técnico y de Control</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><span class="doc-id">DOC-01</span></td>
-                            <td><strong>Contrato de Administración (Management Agreement)</strong></td>
-                            <td>Área de Hospitalidad</td>
-                            <td>Operación exclusiva, cobro de flujos brutos, incentivos y régimen de penalizaciones aplicables al propietario.</td>
-                        </tr>
-                        <tr>
-                            <td><span class="doc-id">DOC-02</span></td>
-                            <td><strong>Contrato de Servicios Técnicos (TSA)</strong></td>
-                            <td>Ingeniería, Arquitectura y Diseño</td>
-                            <td>Parámetros de adecuación física, consultoría especializada del SCH y control de deficiencias.</td>
-                        </tr>
-                        <tr>
-                            <td><span class="doc-id">DOC-03</span></td>
-                            <td><strong>Anexo F</strong></td>
-                            <td>Instalaciones Físicas</td>
-                            <td>Descripción técnica detallada y límites del complejo físico Crowne Plaza.</td>
-                        </tr>
-                    </tbody>
-                </table>
+            
+            <div style="background-color: #f8f9fa; border: 1px solid #e9ecef; border-radius: 1rem; padding: 2rem; margin-bottom: 1.5rem;">
+                <p style="font-size: 0.95rem; color: #333946; text-align: justify; line-height: 1.7; font-weight: 500;">
+                    Tras la auditoría integral y el cotejo de las disposiciones contractuales, se determina que el proyecto cuenta con un blindaje patrimonial de alta efectividad para el Propietario. El factor de mayor relevancia jurídica reside en la <strong>ausencia absoluta de avales, fianzas u obligados solidarios</strong> personales o corporativos en los instrumentos de Administración y Servicios Técnicos, protegiendo plenamente el patrimonio de los socios, accionistas y afiliadas de Desarrolladora Bali, S.A. de C.V.
+                </p>
+            </div>
+
+            <!-- BLOQUES DE LOS 5 PUNTOS DE RECOMENDACIÓN -->
+            <div class="sintesis-list">
+                <div class="sintesis-item">
+                    <span class="sintesis-num">01</span>
+                    <div class="sintesis-text">
+                        <strong>Fijación de daños líquidos sin actualización:</strong>
+                        <p>IHG cedió en no reclamar la actualización de los daños líquidos, fijando de forma definitiva la cantidad en 1.3 MDD desde la fecha en que se constituyó el incumplimiento del contrato anterior.</p>
+                    </div>
+                </div>
+
+                <div class="sintesis-item">
+                    <span class="sintesis-num">02</span>
+                    <div class="sintesis-text">
+                        <strong>Suscripción simplificada vía DocuSign:</strong>
+                        <p>Actualmente solo solicitan la firma de la versión digital mediante la plataforma DocuSign, lo cual podría complejizar o debilitar procesalmente una eventual demanda por parte de IHG sobre el presente contrato.</p>
+                    </div>
+                </div>
+
+                <div class="sintesis-item">
+                    <span class="sintesis-num">03</span>
+                    <div class="sintesis-text">
+                        <strong>Condición suspensiva para licencias:</strong>
+                        <p>Se logró que IHG accediera a incorporar una condición suspensiva con vigencia hasta diciembre de 2026 para la obtención de las licencias requeridas, otorgando un margen de seguridad constructiva.</p>
+                    </div>
+                </div>
+
+                <div class="sintesis-item">
+                    <span class="sintesis-num">04</span>
+                    <div class="sintesis-text">
+                        <strong>Limitación del desembolso inicial:</strong>
+                        <p>Se logró que IHG aceptara que el pago inicial que se realice se efectúe estrictamente de acuerdo con los hitos del contrato de servicios técnicos ($37,500 USD), optimizando el flujo de caja del Propietario; asimismo, en caso de que no se consigan las licencias, ese monto se descontará de los daños líquidos.</p>
+                    </div>
+                </div>
+
+                <div class="sintesis-item">
+                    <span class="sintesis-num">05</span>
+                    <div class="sintesis-text">
+                        <strong>Reducción y equilibrio de obligaciones del Propietario:</strong>
+                        <p>Se logró la reducción sustancial de las obligaciones del Propietario en materia laboral, de continuación de reservas a través de los canales de IHG y de esquemas de indemnización. Esto equilibra las asimetrías lesivas del contrato previo, que actualmente se encuentra en incumplimiento y por el cual se reclaman los daños líquidos de origen.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- 02 ANÁLISIS CONTRACTUAL Y PARTES -->
+        <!-- 01 ANÁLISIS CONTRACTUAL Y PARTES -->
         <section class="card-presentation">
-            <span class="section-index">APARTADO 02</span>
+            <span class="section-index">APARTADO 01</span>
             <h2>Análisis de las Partes y Objeto</h2>
             <p class="intro-text">
                 Estructura estructurada bajo un esquema tripartito de afiliadas para centralizar los estándares de la marca InterContinental Hotels Group (IHG) delimitando la responsabilidad patrimonial.
@@ -356,9 +405,9 @@
             </div>
         </section>
 
-        <!-- 03 ESQUEMA DE contraprestaciones Y PAGOS (AMPLIADO) -->
+        <!-- 02 ESQUEMA DE contraprestaciones Y PAGOS -->
         <section class="card-presentation">
-            <span class="section-index">APARTADO 03</span>
+            <span class="section-index">APARTADO 02</span>
             <h2>Esquema de Contraprestaciones y Pagos</h2>
             <p class="intro-text">
                 Asignación pormenorizada de flujos de caja, compromisos de capital inicial, tarifas operativas y el régimen de reembolso de gastos aplicables a los contratos del proyecto.
@@ -552,9 +601,9 @@
 
         </section>
 
-        <!-- 04 DIAGNÓSTICO Y TIEMPOS -->
+        <!-- 03 DIAGNÓSTICO Y TIEMPOS -->
         <section class="card-presentation">
-            <span class="section-index">APARTADO 04</span>
+            <span class="section-index">APARTADO 03</span>
             <h2>Diagnóstico y Plazos Críticos</h2>
             <p class="intro-text">
                 Régimen temporal y fechas hito que actúan como mecanismos de control de cumplimiento y mitigación de retrasos de obra en el activo físico.
@@ -584,9 +633,9 @@
             </div>
         </section>
 
-        <!-- 05 RIESGOS INHERENTES IDENTIFICADOS Y MITIGADORES -->
+        <!-- 04 RIESGOS INHERENTES IDENTIFICADOS Y MITIGADORES -->
         <section class="card-presentation">
-            <span class="section-index">APARTADO 05</span>
+            <span class="section-index">APARTADO 04</span>
             <h2>Riesgos Inherentes identificados y mitigadores</h2>
             <p class="intro-text">
                 Riesgos detectados durante la revisión de los instrumentos de administración y consultoría técnica hotelera, acompañados de sus respectivos análisis mitigadores:
@@ -631,9 +680,9 @@
             </div>
         </section>
 
-        <!-- 06 CONSECUENCIAS DE INCUMPLIMIENTO Y GARANTÍAS -->
+        <!-- 05 CONSECUENCIAS DE INCUMPLIMIENTO Y GARANTÍAS -->
         <section class="card-presentation">
-            <span class="section-index">APARTADO 06</span>
+            <span class="section-index">APARTADO 05</span>
             <h2>Consecuencias de Incumplimiento y Cobro</h2>
             <p class="intro-text">
                 Análisis de las implicaciones legales, operativas y patrimoniales en caso de impago de la Cuota de Terminación de $1,316,000 USD.
@@ -678,6 +727,47 @@
                 <p style="font-size: 0.95rem; font-weight: 600; color: #262a36;">
                     Consecuentemente, el único patrimonio jurídicamente obligado para responder por esta contingencia es el perteneciente a la persona moral firmante del acuerdo (Desarrolladora Bali, S.A. de C.V.).
                 </p>
+            </div>
+        </section>
+
+        <!-- 06 INVENTARIO DE DOCUMENTOS -->
+        <section class="card-presentation">
+            <span class="section-index">APARTADO 06</span>
+            <h2>Inventario de Documentos</h2>
+            <p class="intro-text">
+                Régimen documental base examinado para determinar la vinculación obligacional del proyecto inmobiliario y hotelero:
+            </p>
+            <div class="table-responsive">
+                <table class="doxus-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Instrumento Contractual</th>
+                            <th>Área del Proyecto</th>
+                            <th>Alcance Técnico y de Control</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="doc-id">DOC-01</span></td>
+                            <td><strong>Contrato de Administración (Management Agreement)</strong></td>
+                            <td>Área de Hospitalidad</td>
+                            <td>Operación exclusiva, cobro de flujos brutos, incentivos y régimen de penalizaciones aplicables al propietario.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="doc-id">DOC-02</span></td>
+                            <td><strong>Contrato de Servicios Técnicos (TSA)</strong></td>
+                            <td>Ingeniería, Arquitectura y Diseño</td>
+                            <td>Parámetros de adecuación física, consultoría especializada del SCH y control de deficiencias.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="doc-id">DOC-03</span></td>
+                            <td><strong>Anexo F</strong></td>
+                            <td>Instalaciones Físicas</td>
+                            <td>Descripción técnica detallada y límites del complejo físico Crowne Plaza.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
 
